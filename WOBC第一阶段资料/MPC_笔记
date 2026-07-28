@@ -1,0 +1,91 @@
+main API //各个模块初始化
+System_Init
+	CLOCK_SYS_Init
+	CLOCK_SYS_UpadateConfiguration
+	PINS_DRV_Init
+Ftm_Init
+	PIT_DRV_Init
+	PIT_DRV_InitChannel
+	PIT_DRV_StartChannel
+FtmCapture_Init
+	IC_Init
+	IC_SetChannelMode
+	CLOCK_SYS_GetFreq
+
+Mscan_Init 
+(1)CAN和CAN-FD主要的区别有以下几点：(1145是canfd)
+	传输速率不同：CAN的最高传输速率是1 Mbps，而CAN-FD支持更高的传输速率，一般可达到8 Mbps。
+	数据长度不同：CAN的数据长度是8字节，而CAN-FD支持更长的数据长度，最多可达到64字节。
+	帧格式不同：CAN的帧格式分为标准帧和远程帧，而CAN-FD取消了远程帧的概念，使用了新的帧格式。
+	ID长度不同：CAN的标识符长度是11位或29位，而CAN-FD支持更长的标识符，最长可达到64位。
+
+(2)在仿真发送CAN报文的时候，需要设置报文的字节长度，有设置dlc和datalength两种方式，正常can报文的帧结构DLC占4个bit,Data最多站64bit。
+CAN DLC是Controller Area Network Data Link Layer的缩写，是指控制器局域网数据链路层。CAN DLC是CAN协议中数据帧中的一个字段，用于指示数据帧中的数据的长度。
+CAN DLC字段的取值范围是0到8字节，它决定了数据帧中携带的数据的长度。
+(3)远程帧是一种特殊的帧格式，用于请求其他节点发送数据。它的标识符与标准帧相同，但没有数据字段。
+扩展帧是另一种帧格式，用于传输更大的数据量。它的标识符由29位组成，拆分为高11位和低18位两部分，正常标准帧是11位
+	CAN_Init
+	CAN_ConfigRxBuff
+	CAN_InstallEventCallback
+	CAN_Receive
+	CAN_ConfigTxBuff
+MscanHV_Init
+	CAN_Init
+	CAN_ConfigRxBuff
+	CAN_InstallEventCallback
+	CAN_Receive
+	CAN_ConfigTxBuff
+Gpio_Init
+	SET_PIN_SELF_LOCK_H	
+		PINS_DRV_SetPins :参数是LED_RED_PORT和1 << LED_RED_PIN
+		PINS_DRV_ClearPins函数用于将引脚电平设置为低电平
+	SET_PIN_S2_CTRL_L
+	SET_PIN_LED0_TOGLE
+	SET_PIN_LED1_TOGLE
+	SET_PIN_LED2_TOGLE
+	SET_PIN_LED3_TOGLE
+Adc_Init
+	ADC_DRV_Reset //用于将ADC模块恢复到初始状态。该函数会重置ADC模块的寄存器和配置参数，并关闭所有通道。调用ADC_DRV_Reset可以清除之前的设置并重新初始化ADC模块
+	ADC_DRV_DoCalibration //此函数执行校准序列。建议在使用ADC转换器之前运行此序列。校准的最大时钟频率为40 MHz，此功能设置ADCLKSEL位，导致最大输入时钟频率为80 MHz。
+	ADC_DRV_ConfigConverter 此功能使用配置结构中提供的选项配置 ADC 转换器
+	ADC_DRV_EnableChannel
+	
+vJ1772Init 
+//J1772标准支持三个充电级别，分别是WPT1 (3.7 kW)、WPT2 (7 kW)和WPT3 (11 kW)。这些级别代表了不同的功率水平，可以根据车辆的需求选择适当的充电级别进行充电
+//J1772CP是电动汽车充电协议，用于在充电设备和电动汽车之间进行通信和充电控制。
+//J1772CC CC信号是用来传输充电机的最大充电能力信息的一种信号.
+while(1)//各个task
+MscanReceiveHandle
+	BMS_OBC指的是电池管理系统与车载充电器的集成。在混合动力电动汽车中，BMS_OBC负责监测和控制电池的充电和放电过程，以确保电池的安全性和有效性。
+BMS_OBC不仅能监测电池的电压和电荷状态，还能根据车辆的需求调整电池的工作状态，以提高整个系统的效率和性能
+MscanHV_ReceiveHandle
+ADC_ConvertHandle //读取AD采集到的值，故障反馈
+	Adc_ReadValue_ATDDR0
+		ADC_DRV_StartConversion
+		ADC_DRV_GetStatusFlags 
+		ADC_DRV_GetConvResultsToArray
+			ADC_GetConvResults ==>ad采集到的值会存放到adcRawValue
+		ADC_DRV_ClearStatusFlags //清除ISR中断标志位
+	KL30_ADC的数据处理  AdcData.analog.Vkl30_mcu
+	CC_DET_ADC的数据处理 AdcData.analog.Vcc_mcu，AdcData.analog.Rcc_mcu
+	CP_DET_ADC的数据处理 AdcData.analog.Vcp_mcu
+vJ1772Handle
+	FtmCapture_GetValue
+		IC_GetMeasurement：此函数将以即时计数为单位获取测量信号的值。
+		IC_SetChannelMode： 此功能仅在连续模式下可用于输入捕获。
+	//vGetCcValue： 检查自上次采样以来该值是否发生了显着变化
+	lGetCcStatus： 返回的是充电状态
+	lGetCpChgRate：返回充电效率
+MscanSendMsgHandle
+	MsCANSend_Period100ms
+		CAN_ConfigTxBuff
+/*
+enableFD 实现灵活的数据速率
+enableBRS 在CAN FD帧内启用比特率开关
+fdPadding 当数据长度代码 （DLC） 指定的有效负载大小大于实际数据长度时用于填充的值
+isRemote  指定帧是标准帧还是远程帧
+*/
+		CAN_SendBlocking 使用指定的缓冲区以阻塞方式发送CAN帧
+	MsCANSend_Period500ms
+MsacnHV_SendMsgHandle();
+Ftm_TaskHandle

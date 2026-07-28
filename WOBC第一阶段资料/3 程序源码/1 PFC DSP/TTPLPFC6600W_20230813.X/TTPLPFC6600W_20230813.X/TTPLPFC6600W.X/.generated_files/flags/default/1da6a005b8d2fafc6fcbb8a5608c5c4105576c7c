@@ -1,0 +1,1 @@
+ -c -mcpu=$(MP_PROCESSOR_OPTION)      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"E:\360MoveData\Users\TEST\Desktop\LX6600\PFC\TTPLPFC6600W_20230813.X\TTPLPFC6600W_20230813.X\TTPLPFC6600W.X\main.c

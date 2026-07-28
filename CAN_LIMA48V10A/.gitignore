@@ -1,0 +1,28 @@
+# ---------- Keil MDK 编译产物 ----------
+MDK-ARM/Objects/
+MDK-ARM/Listings/
+MDK-ARM/bin/
+
+# Keil 用户态 GUI 配置（含 .bak 备份）
+MDK-ARM/*.uvguix.*
+
+# 编译中间文件
+*.o
+*.d
+*.crf
+*.axf
+*.elf
+*.map
+*.lst
+*.dep
+*.iex
+*.htm
+*.lnp
+*.sct
+*.build_log.html
+
+# 编辑器 / 系统
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db

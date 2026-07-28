@@ -1,0 +1,1 @@
+ -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)    -Wa,-g,--no-relax$(MP_EXTRA_AS_POST)  -mdfp="${DFP_DIR}/xc16"E:\360MoveData\Users\TEST\Desktop\LX6600\PFC\TTPLPFC6600W_20230813.X\TTPLPFC6600W_20230813.X\TTPLPFC6600W.X\mcc_generated_files\boot\user_interrupt_table.S

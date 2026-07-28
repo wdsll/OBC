@@ -1,0 +1,32 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.g_c
+*.g_x
+*.xml
+*.prefs
+*.launch
+*.args
+*.mk
+*.sisc
+*.crf
+*.stg
+*.tdt
+*.bbl
+*.hwl
+*.ini
+*.mem
+*.G_C
+*.iPE
+.generated_files/flag/default/
+/.settings
+/.vscode
+Documentation/
+FLASH/
+Project_Settings/Debugger/
+/Debug/
+/Release/

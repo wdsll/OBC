@@ -1,0 +1,189 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: OBC DCDC VCU BMS
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ OBC_ACInletLTerminalTemp : 0|8@0+ (1,-40) [-40|210] "°C" Vector__XXX
+ SG_ OBC_ACInletNTerminalTemp : 0|8@0+ (1,-40) [-40|210] "°C" Vector__XXX
+ SG_ OBC_InletTempSenFault : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_BMS_LTerminalOverTemp : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ OBC_BMS_NTerminalOverTemp : 0|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ OBC_12VFault : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ChgerInputACinterrupt : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ChgerTempCircuitFault : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ChgConnectionFault : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ChgerShtdownOverTemp : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ChgerDeratingOverTemp : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ACSocketShtdownOverTemp : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ACSocketDeratingOverTemp : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ChgerInternalShtdown : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ChgerInternalDerating : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_CAN_BusOff : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_CAN_MissVCU : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_CAN_InternalComFault : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_CAN_LostBMSFrame : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 564 OBC_CC_CP: 8 Vector__XXX
+ SG_ OBC_CC_RES : 32|16@1+ (1,0) [0|0] "RES" Vector__XXX
+ SG_ OBC_CP_Duty : 24|8@1+ (1,0) [0|0] "%" Vector__XXX
+ SG_ OBC_CP_Freq : 8|16@1+ (1,0) [0|0] "Hz" Vector__XXX
+ SG_ OBC_CP_Volt : 0|8@1+ (0.1,0) [0|0] "V" Vector__XXX
+
+BO_ 560 OBC_Status: 8 OBC
+ SG_ OBC_BMS_ChgFaultReq : 7|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ OBC_StsMode : 3|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ OBC_StsChgCC : 15|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ OBC_StsCP : 11|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ OBC_BMS_PWMCP : 23|8@0+ (0.4,0) [0|100] "%" Vector__XXX
+ SG_ OBC_StsElock : 27|2@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ OBC_Status_RollCount : 59|4@0+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 561 OBC_VoltCurrent: 8 OBC
+ SG_ OBC_BMS_MaxCurDC : 7|10@0+ (0.1,0) [0|100] "A" Vector__XXX
+ SG_ OBC_BMS_MaxCurAC : 13|10@0+ (0.1,0) [0|100] "A" Vector__XXX
+ SG_ OBC_BMS_ActVoltDC : 19|12@0+ (0.5,0) [0|1000] "V" Vector__XXX
+ SG_ OBC_BMS_ActCurDC : 39|10@0+ (0.1,0) [0|100] "A" Vector__XXX
+ SG_ OBC_BMS_ActVoltAC : 45|10@0+ (0.5,0) [0|500] "V" Vector__XXX
+ SG_ OBC_BMS_ActCurAC : 51|10@0+ (0.1,0) [0|100] "A" Vector__XXX
+
+BO_ 562 OBC_Temp_Version: 8 OBC
+ SG_ SOFTWARE_VERSION : 56|8@1- (1,0) [0|0] "" Vector__XXX
+ SG_ HARDWARE_VERSION : 48|8@1- (1,0) [0|0] "" Vector__XXX
+ SG_ OBC_OBCTemp : 7|8@0+ (1,-40) [-40|214] "°C" Vector__XXX
+ SG_ OBC_InletTemp : 15|8@0+ (1,-40) [-40|210] "°C" Vector__XXX
+
+BO_ 563 OBC_Fault: 8 OBC
+ SG_ OBC_InputOverVoltage : 5|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_InputUnderVoltage : 4|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_OutputOverVoltage : 1|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_OutputUnderVoltage : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_InputOverCurrent : 7|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_OutputShortCircuit : 6|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_ElockFault : 13|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_S2ControlFault : 12|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_CPdutyAbnormal : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_CPVoltAbnormal : 10|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_CPFrequencyAbnormal : 9|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ OBC_CAN_MissBMS : 14|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMS_OBC_Ctrl_RollCount : 59|4@0+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 512 BMS_OBC_Ctrl: 8 BMS
+ SG_ BMS_OBC_StsModeReq : 3|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ BMS_OBC_MaxVoltReq : 15|16@0+ (0.1,0) [0|1000] "V" Vector__XXX
+ SG_ BMS_OBC_MaxCurReq : 31|16@0+ (0.1,-1000) [-1000|1000] "A" Vector__XXX
+ SG_ BMS_Status_RollCount : 59|4@0+ (1,0) [0|15] "" Vector__XXX
+
+
+
+CM_ "OBC_DCDC_CAN Matrix_Example";
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+BA_DEF_  "GenCanBaudRate" INT 0 0;
+BA_DEF_  "GenCanAddress" HEX 0 0;
+BA_DEF_ BO_  "GenMsgType" ENUM  "接收帧","发送帧";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgRowHeight" FLOAT 0 0;
+BA_DEF_ BO_  "GenMsgFontSize" FLOAT 0 0;
+BA_DEF_ SG_  "GenSigStartValue" INT 0 0;
+BA_DEF_ SG_  "GenSigRemarks" STRING ;
+BA_DEF_ SG_  "GenSigFuncType" ENUM  "无","CRC8","SUM","自增","XOR";
+BA_DEF_DEF_  "GenCanBaudRate" 0;
+BA_DEF_DEF_  "GenCanAddress" 0;
+BA_DEF_DEF_  "GenMsgType" "接收帧";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgRowHeight" 0;
+BA_DEF_DEF_  "GenMsgFontSize" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigRemarks" "";
+BA_DEF_DEF_  "GenSigFuncType" "无";
+BA_ "GenCanBaudRate" 500;
+BA_ "GenCanAddress" 229;
+BA_ "GenMsgCycleTime" BO_ 560 100;
+BA_ "GenMsgCycleTime" BO_ 561 100;
+BA_ "GenMsgCycleTime" BO_ 562 500;
+BA_ "GenMsgCycleTime" BO_ 563 500;
+BA_ "GenMsgType" BO_ 512 1;
+BA_ "GenMsgCycleTime" BO_ 512 100;
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ACInletLTerminalTemp "-";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ACInletNTerminalTemp "-";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_InletTempSenFault "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_BMS_LTerminalOverTemp "0x0:Normal(normal) 0x1:OverTemp Level I(1stage fault derating) 0x2:OverTemp Level II(2Level fault prohibits charging) 0x3:Reserved(reserved)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_BMS_NTerminalOverTemp "0x0:Normal(normal) 0x1:OverTemp Level I(1stage fault derating) 0x2:OverTemp Level II(2Level fault prohibits charging) 0x3:Reserved(reserved)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_12VFault "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ChgerInputACinterrupt "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ChgerTempCircuitFault "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ChgConnectionFault "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ChgerShtdownOverTemp "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ChgerDeratingOverTemp "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ACSocketShtdownOverTemp "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ACSocketDeratingOverTemp "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ChgerInternalShtdown "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_ChgerInternalDerating "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_CAN_BusOff "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_CAN_MissVCU "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_CAN_InternalComFault "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 3221225472 OBC_CAN_LostBMSFrame "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 560 OBC_BMS_ChgFaultReq "0x0:Normal(normal) 0x2:Derating(Power down) 0x3:Recover Prohibit Charge (Recoverable forbidden charging) 0x6:Powerdown(unrecoverable failure) Other:Reserved(reserved)";
+BA_ "GenSigRemarks" SG_ 560 OBC_StsMode "0x0:Default(Defaults) 0x1:Init(initialization) 0x2:Standby(Standby) 0x5:Slow Charge(slow charge) 0x7:DisCharge(external discharge) 0x9:Heating(heating) 0xB:ShutDown(closure) 0xC:AfterRun(after running) 0xD:End of charge(finished charging)(reserved) Other";
+BA_ "GenSigRemarks" SG_ 560 OBC_StsChgCC "0x0: CC open (CCdisconnect) 0x1:Charge Connect(charging connection) 0x2:Half Connect(S3disconnect) 0x3:Signal Fault(signal error)";
+BA_ "GenSigRemarks" SG_ 560 OBC_StsCP "0x0:CP open(V=0V)(CPdisconnect) 0x1:S2 open(V=9V)(S2disconnect) 0x2:Connect with Power(V=6V)(Charge permission) 0x3:S2 Signal Fault(S2signal error) 0x4:CP Signal Fault(CPsignal error) 0x5~0x6:Reserved(reserved) 0x7:Invalid(invalid)";
+BA_ "GenSigRemarks" SG_ 560 OBC_BMS_PWMCP "0xFF:Invalid(invalid)";
+BA_ "GenSigRemarks" SG_ 560 OBC_StsElock "0x0:Unlock(unlocked) 0x1:Lock(lock up) 0x2:Lock Fault(lock failure) 0x3:Invalid(invalid)";
+BA_ "GenSigRemarks" SG_ 561 OBC_BMS_MaxCurDC "-";
+BA_ "GenSigRemarks" SG_ 561 OBC_BMS_MaxCurAC "-";
+BA_ "GenSigRemarks" SG_ 561 OBC_BMS_ActVoltDC "-";
+BA_ "GenSigRemarks" SG_ 561 OBC_BMS_ActCurDC "-";
+BA_ "GenSigRemarks" SG_ 561 OBC_BMS_ActVoltAC "-";
+BA_ "GenSigRemarks" SG_ 561 OBC_BMS_ActCurAC "-";
+BA_ "GenSigRemarks" SG_ 562 OBC_OBCTemp "0xFF: Invalid(invalid )likeOBCMultiple temperature collection points are arranged inside, and the highest temperature collected is sent";
+BA_ "GenSigRemarks" SG_ 562 OBC_InletTemp "-";
+BA_ "GenSigRemarks" SG_ 563 OBC_InputOverVoltage "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_InputUnderVoltage "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_OutputOverVoltage "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_OutputUnderVoltage "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_InputOverCurrent "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_OutputShortCircuit "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_ElockFault "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_S2ControlFault "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_CPdutyAbnormal "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_CPVoltAbnormal "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_CPFrequencyAbnormal "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 563 OBC_CAN_MissBMS "0x0:Normal(normal) 0x1:Error(abnormal)";
+BA_ "GenSigRemarks" SG_ 512 BMS_OBC_StsModeReq "0x2:Standby(Standby) 0x7:DisCharge( external discharge)0x9:Heating(heating request) 0xA:Charge allowed(charge request) 0xB:ShutDown(closure) Other:Reserved(reserve)";
+BA_ "GenSigRemarks" SG_ 512 BMS_OBC_MaxVoltReq "-";
+BA_ "GenSigRemarks" SG_ 512 BMS_OBC_MaxCurReq "-";
+BA_ "GenSigRemarks" SG_ 512 BMS_Status_RollCount "-";
+

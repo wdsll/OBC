@@ -1,0 +1,40 @@
+# macOS / Windows 系统文件
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Altium 自动生成目录
+**/History/
+**/__Previews/
+**/Project Logs/
+**/__Previews/
+
+# 编辑器
+.vscode/
+
+# ===== 嵌入式构建产物（不应入库）=====
+# MCUXpresso / Eclipse / NXP S32DS
+Debug/
+Debug_*/
+Release/
+Release_*/
+Debug_RAM/
+Debug_FLASH/
+Debug_Configurations/
+**/Objects/
+**/Listings/
+**/Debug/
+**/Release/
+.metadata/
+
+# Keil / ARM 编译中间文件
+*.o
+*.axf
+*.elf
+*.map
+*.dep
+*.crf
+*.htm
+*.build_log.html
+JLinkLog.txt
+*.bin
