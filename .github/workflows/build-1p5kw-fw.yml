@@ -2,6 +2,12 @@ name: Build 1.5kW OBC firmware
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "1.5KW_OBC/firmware/**"
+      - ".github/workflows/build-1p5kw-fw.yml"
   push:
     branches:
       - agent/add-1p5kw-schematic-initial-fw
