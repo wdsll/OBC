@@ -1,0 +1,47 @@
+name: Build 1.5kW OBC firmware
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/add-1p5kw-schematic-initial-fw
+    paths:
+      - "1.5KW_OBC/firmware/**"
+      - ".github/workflows/build-1p5kw-fw.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-gd32f303:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install GNU Arm Embedded toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi
+
+      - name: Build target firmware
+        run: make -C 1.5KW_OBC/firmware clean all
+
+      - name: Verify output files
+        run: |
+          test -s 1.5KW_OBC/firmware/build/gd32f303/obc_1p5kw_initial.elf
+          test -s 1.5KW_OBC/firmware/build/gd32f303/obc_1p5kw_initial.hex
+          test -s 1.5KW_OBC/firmware/build/gd32f303/obc_1p5kw_initial.bin
+          arm-none-eabi-readelf -h 1.5KW_OBC/firmware/build/gd32f303/obc_1p5kw_initial.elf
+
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: obc-1p5kw-gd32f303-safe-initial
+          if-no-files-found: error
+          path: |
+            1.5KW_OBC/firmware/build/gd32f303/obc_1p5kw_initial.elf
+            1.5KW_OBC/firmware/build/gd32f303/obc_1p5kw_initial.hex
+            1.5KW_OBC/firmware/build/gd32f303/obc_1p5kw_initial.bin
+            1.5KW_OBC/firmware/build/gd32f303/obc_1p5kw_initial.map
